@@ -1,33 +1,16 @@
-let projects = null
-function getData(){
-  return new Promise((resolve, reject) => {
-    projects = fetch('data/project.json');
-  })
+function parse_the_data(json_data){//parsing data from the json to array of object
+  json_data.forEach(function(element){
+    let card_temp = new card();
+    card_temp.title = element.title;
+    card_temp.resume = element.resume;
+    card_temp.progress = element.progress;
+    card_temp.link = element.link;
+    generate_html(card_temp);
+  });
 }
-//we get all project from the server
-getData().then(console.log(projects));
-let mycard = new card();
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
-generate_html(mycard);
+
+//first we get the data
+fetch('data/project.json')
+  .then(response => response.json())
+  .then(data => parse_the_data(data.data))
+  .catch(err => console.error(err));

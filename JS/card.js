@@ -1,6 +1,6 @@
-function card(nom,resume,progress){
-  this.nom = "rr";
-  this.resume = "ceci est un test";
-  this.progress = 70;
-  this.link = "#"
+function card(nom,resume,progress, link){
+  this.title = nom;
+  this.resume = resume;
+  this.progress = progress;
+  this.link = link;
 }

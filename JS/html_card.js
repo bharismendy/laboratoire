@@ -7,7 +7,7 @@ function html_card(card){//create a card for each project
 
   let card_title = document.createElement("h4");
   card_title.classList.add("my-0", "font-weight-normal");
-  card_title.innerHTML = card.nom;
+  card_title.innerHTML = card.title;
 
   let div_body = document.createElement("div");
   div_body.classList.add("card-body", "d-flex", "flex-column");
